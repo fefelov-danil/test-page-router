@@ -1,12 +1,10 @@
-import {ICharacter} from "@/common/api";
 import {Character} from "@/components/character";
 import Image from 'next/image'
 import Badge from "@mui/material/Badge";
 import MailIcon from '@mui/icons-material/Mail';
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText/ListItemText";
-import Divider from "@mui/material/Divider/Divider";
+import Divider from "@mui/material/Divider";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -24,6 +22,8 @@ import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import ListItemText from "@mui/material/ListItemText";
+import {ICharacter} from "@/common/api";
 
 interface Props {
   characters: ICharacter
@@ -101,7 +101,8 @@ const itemData = [
 export const Info = ({characters}: Props) => {
 
   return (
-    <>
+    <div className="p-10 bg-gray-600">
+      <h1 className="text-2xl text-center mb-5">App router. Без клиентских компонент.</h1>
       <h2 className="text-center my-5">Количество пресонажей: {characters.info.count}</h2>
       <div className="grid grid-cols-3 gap-4 max-w-[1000px] mx-auto">
         {characters.results.map((character, i) => <Character key={i} character={character} />)}
@@ -302,6 +303,6 @@ export const Info = ({characters}: Props) => {
           ))}
         </ImageList>
       </div>
-    </>
+    </div>
   )
 }
